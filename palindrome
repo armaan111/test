@@ -1,0 +1,23 @@
+#!/bin/bash
+
+echo "please enter the string"
+
+read string 
+
+string_new=$string
+
+reverse_string=`echo $string|rev`
+
+if [ $reverse_string -eq $string_new ];
+
+then
+
+echo "string is palindrome"
+
+else 
+
+echo "string is not palindrome"
+
+fi
+
+
