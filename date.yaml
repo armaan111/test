@@ -1,0 +1,10 @@
+#########################################PLAYBOOK DATE COMMAND###################
+
+ - name: executing a two commands on server
+   hosts: all_servers
+   tasks: 
+  
+      - name: executing a date command on linux server
+        command: date
+      - name: executing a cat /etc/hosts on linux server
+        command: cat /etc/hosts

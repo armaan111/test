@@ -1,0 +1,6 @@
+#################Playbook to test connectivity of servers
+
+ - hosts: all_servers
+   tasks:
+    - name: checking ping module
+      ping:  

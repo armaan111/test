@@ -1,0 +1,17 @@
+# Web Servers
+web1 ansible_host=client.com ansible_connection=ssh ansible_user=ansible ansible_ssh_pass=redhat
+
+
+# db servers
+
+db1 ansible_host=database.com ansible_connection=ssh ansible_user=ansible  ansible_ssh_pass=redhat
+
+[db_nodes]
+db1
+
+[web_nodes]
+web1
+
+[all_servers:children]
+db_nodes
+web_nodes
