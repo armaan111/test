@@ -1,0 +1,11 @@
+ - name: executing a user module
+   hosts: web
+   tasks:
+   
+      - name: executing a user module
+        user:
+          name: web_user
+          uid: 1040
+          group: ansible
+          shell: /bin/bash
+          comment: apache_admin

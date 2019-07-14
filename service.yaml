@@ -1,0 +1,9 @@
+
+ - name: execute a service module
+   hosts: web
+   tasks: 
+
+      - name: executing a service module
+        service:
+          name: httpd
+          state: started

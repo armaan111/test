@@ -1,0 +1,9 @@
+ - name: executing a task on web servers
+   hosts: web
+   tasks:
+
+       - name: executing a lineinfile module
+         lineinfile:
+            path: /etc/resolv.conf
+            line: 'nameserver 10.1.250.10'
+      
