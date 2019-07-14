@@ -1,0 +1,11 @@
+
+   - name: disabling snmp port
+     hosts: web
+     tasks: 
+
+
+        - name: disable snmpport
+          firewalld: 
+            port: '{{ snmp_port }}'
+            permanent: true
+            state: disabled

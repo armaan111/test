@@ -1,0 +1,8 @@
+ - name: update name server entry into resolv.conf file
+   hosts: db
+   tasks: 
+
+     - name: update name server entry into resolv.conf
+       lineinfile:
+         path: /etc/resolv.conf
+         line: 'nameserver {{ nameserver_ip }}'

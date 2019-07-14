@@ -1,7 +1,7 @@
 
-web1 ansible_host=client.com ansible_connection=ssh ansible_user=root ansible_ssh_pass=redhat
+web1 ansible_host=client.com ansible_connection=ssh ansible_user=root ansible_ssh_pass=redhat 
 
-db1 ansible_host=database.com ansbile_connection=ssh ansible_user=root ansible_ssh_pass=redhat
+db1 ansible_host=server.database.com ansbile_connection=ssh ansible_user=root ansible_ssh_pass=redhat
 
 
 [web]
@@ -13,5 +13,5 @@ db1
 
 
 [all_servers:children]
-web1
-db1
+web
+db

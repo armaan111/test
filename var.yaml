@@ -1,0 +1,20 @@
+ - name: update entries into the web and db servers
+   hosts: web1
+   vars:
+    
+      car_model: "BMW"
+      country_name: "USA"
+      title:   "systems engineer"
+
+   tasks:
+     
+       -  name: print the car model
+          command: echo "my car model is {{ car_model }}"
+      
+       -  name: print  my country
+          command: echo "I love my {{ country_name }}"
+       
+       -  name: print my title
+          command: echo "I work as a {{ title }}"
+
+
