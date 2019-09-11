@@ -1,11 +1,11 @@
 ---
  - hosts: all #This playbook is created by armaan mahajan
    become: true
-   become_user: true
+   become_user: root
    tasks:
         - name: installing httpd latest package
           yum:
-               name: http
+               name: httpd
                state: latest
         - name: starting httpd service
           service:
