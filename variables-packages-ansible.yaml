@@ -1,0 +1,15 @@
+---
+- name: Install multiple services using the variables in ansible
+  hosts: all
+  vars:
+    web_pkg: httpd
+    firewalld_pkg: firewalld
+    python_pkg: python-httplib2
+  tasks:
+     - name: install the required packages
+       yum:
+        name:
+          - "{{web_pkg}}"
+          - "{{firewalld_pkg}}"
+          - "{{python_pkg}}"
+        state: latest
