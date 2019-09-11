@@ -1,0 +1,45 @@
+---
+ - hosts: all #This playbook is created by armaan mahajan
+   become: true
+   become_user: true
+   tasks:
+        - name: installing httpd latest package
+          yum:
+               name: http
+               state: latest
+        - name: starting httpd service
+          service:
+                   name: httpd
+                   state: started
+                   enabled: true
+        - name: installing firewalld  latest package
+          yum:
+               name: firewalld
+               state: latest
+        - name: starting firewalld service
+
+          service:
+                   name: firewalld
+                   state: started
+                   enabled: true
+
+        - name: permit http service
+          firewalld:
+                   service: http
+                   permanent: true
+                   state: enabled
+                   immediate: yes
+
+        - name: create a simple http web page
+          copy:
+               content: "welcome to the ansible learning course"
+               dest: /var/www/html/index.html
+        - name: Defining web server name
+          lineinfile:
+               path: /etc/httpd/conf/httpd.conf
+               line: ServerName www.client.com:80
+               insertafter: "#ServerName"
+        - name: update its entry in the host file
+          lineinfile:
+              path: /etc/hosts
+              line:  ipaddress www.client.com #Please add your ip address
