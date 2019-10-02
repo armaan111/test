@@ -10,7 +10,7 @@
 				"KeyName": "dust",
 				"SecurityGroups": [
 					"default",
-					null
+				
 				]
 			}
 		},
