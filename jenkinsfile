@@ -5,7 +5,7 @@ pipeline {
         stage('clone repo') {
             steps {
             sh "export AWS_DEFAULT_REGION=ap-south-1"
-            sh "aws cloudformation create-stack --stack-name armaanstack --template-body file://S3bucket.json --region ap-south-1"
+            sh "aws cloudformation create-stack --stack-name armaanstack --template-body file://ec2.yaml --region ap-south-1"
            
       
             }
