@@ -1,12 +1,14 @@
 pipeline {
- agent any {
- stages {
-    stage('Clone repo') {
-	  steps {
-	 sh "export AWS_DEFAULT_REGION=ap-south-1"
-	 sh "aws cloudformation create-stack --stack-name armaanstack --template-body file://S3bucket.json"
-	 
-	  }
-   }
- }
+    agent any
+
+    stages {
+        stage('clone repo') {
+            steps {
+            sh "export AWS_DEFAULT_REGION=ap-south-1"
+            sh "aws cloudformation create-stack --stack-name armaanstack --template-body file://S3bucket.json"
+           
+      
+            }
+        }
+    }
 }
