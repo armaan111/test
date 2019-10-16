@@ -1,0 +1,46 @@
+@Library('jenkins-shared-library') _
+pipeline {
+    agent any
+    options {
+        ansiColor('xterm')
+        buildDiscarder(logRotator(numToKeepStr:'10'))
+        disableConcurrentBuilds()
+        timeout(time: 5, unit: 'MINUTES')
+        timestamps()
+    }
+    environment {
+      GIT_REPO = 'armaan111'
+      GIT_BRANCH = 'master'
+      STACK_NAME_PREFIX = 'dell'
+    }
+    stages {
+      stage ('Checkout') {
+        steps {
+          script {
+            ansiColor('xterm') {
+              checkoutRepository(GIT_REPO,GIT_BRANCH)
+            }
+          }
+        }
+      }
+
+      stage ('Deploy Full Stack') {
+        steps {
+          script {
+            ansiColor('xterm') {
+
+                  sh '''
+
+                  /usr/local/bin/aws sts assume-role --role-arn "arn:aws:iam::825563660354:role/Adminrole" --role-session-name "adminrole" > /dev/null
+                  export STACK_SUFFIX=ec2111
+                  /usr/local/bin/aws cloudformation create-stack --stack-name ${STACK_NAME_PREFIX}-${STACK_SUFFIX} --template-body file://${STACK_SUFFIX}.yaml
+                  
+                  '''
+                
+            }
+          }
+        }
+      }
+
+    } // end stages
+} // end pipeline
