@@ -1,0 +1,24 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: "AWS cloudformation template for EC2 Instance"
+
+Resources: 
+  DevEC2Instance: 
+    Type: 'AWS::EC2::Instance'
+    Properties: 
+      ImageId: ami-0b69ea66ff7391e80
+      InstanceType: t2.micro
+      KeyName: dog
+      SecurityGroups:
+        - default        
+        - !Ref SSHSecurityGroup 
+      AvailabilityZone: us-east-1a    
+  SSHSecurityGroup:
+    Type: 'AWS::EC2::SecurityGroup'
+    Properties: 
+      GroupDescription: My new SSH security group
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: '22'
+          ToPort: '22'
+          CidrIp: 0.0.0.0/0
+
