@@ -4,8 +4,8 @@ pipeline {
     stages {
         stage('clone repo') {
             steps {
-            sh "export AWS_DEFAULT_REGION=ap-south-1"
-            sh "aws cloudformation create-stack --stack-name atom1stack --template-body file://ec2.yaml --region ap-south-1"
+            sh "export AWS_DEFAULT_REGION=us-east-1"
+            sh "aws cloudformation create-stack --stack-name ec2stack --template-body file://ec2111.yaml --region us-east-1"
            
       
             }
