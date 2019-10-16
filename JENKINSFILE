@@ -17,17 +17,15 @@ pipeline {
       stage ('Checkout') {
         steps {
           script {
-            ansiColor('xterm') {
               checkoutRepository(GIT_REPO,GIT_BRANCH)
             }
           }
         }
-      }
+      
 
       stage ('Deploy Full Stack') {
         steps {
           script {
-            ansiColor('xterm') {
 
                   sh '''
 
@@ -37,7 +35,7 @@ pipeline {
                   
                   '''
                 
-            }
+            
           }
         }
       }
