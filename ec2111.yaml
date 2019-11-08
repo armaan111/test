@@ -11,7 +11,7 @@ Resources:
       SecurityGroups:
         - default        
         - !Ref SSHSecurityGroup 
-      AvailabilityZone: us-east-1a    
+      AvailabilityZone: ap-south-1  
   SSHSecurityGroup:
     Type: 'AWS::EC2::SecurityGroup'
     Properties: 
