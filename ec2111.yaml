@@ -5,9 +5,9 @@ Resources:
   DevEC2Instance: 
     Type: 'AWS::EC2::Instance'
     Properties: 
-      ImageId: ami-0b69ea66ff7391e80
+      ImageId: ami-040c7ad0a93be494e
       InstanceType: t2.micro
-      KeyName: dog
+      KeyName: mottu
       SecurityGroups:
         - default        
         - !Ref SSHSecurityGroup 
