@@ -5,7 +5,7 @@ Resources:
   DevEC2Instance: 
     Type: 'AWS::EC2::Instance'
     Properties: 
-      ImageId: ami-040c7ad0a93be494e
+      ImageId: ami-040c7ad0a93be494e 
       InstanceType: t2.micro
       KeyName: mottu
       SecurityGroups:
